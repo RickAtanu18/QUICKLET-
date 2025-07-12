@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QUICKLET - Your Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .product-price {
+      font-weight: bold;
+      color: #16a34a;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      background-color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>QUICKLET</h1>
+    <p>Your Fast & Easy Shopping Destination</p>
+  </header>
+
+  <main class="container" id="product-list">
+    <!-- Products will be inserted here using JS -->
+  </main>
+
+  <footer>
+    © 2025 QUICKLET. All rights reserved.
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: "Wireless Earbuds",
+        price: 1499,
+        image: "https://via.placeholder.com/300x200?text=Earbuds"
+      },
+      {
+        name: "Smartwatch",
+        price: 2399,
+        image: "https://via.placeholder.com/300x200?text=Smartwatch"
+      },
+      {
+        name: "Quicklet Hoodie",
+        price: 999,
+        image: "https://via.placeholder.com/300x200?text=Hoodie"
+      }
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-title">${product.name}</div>
+        <div class="product-price">₹${product.price}</div>
+      `;
+      productList.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
